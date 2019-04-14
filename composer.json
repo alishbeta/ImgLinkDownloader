@@ -1,0 +1,23 @@
+{
+  "name": "alishbeta/img-link-downloader",
+  "description": "Hexa test",
+  "type": "library",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "alishbeta",
+      "email": "dima.simonchuk@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^7.0",
+    "phpunit/phpunit": "^6"
+  },
+  "autoload": {
+    "psr-4": {
+      "AlishBeta\\ImgLinkDownloader\\": "src/",
+      "AlishBeta\\ImgLinkDownloader\\Test\\": "test/"
+    }
+  }
+}
