@@ -34,21 +34,26 @@ class Downloader
      */
     public function getImg($img_url, $path = '')
     {
+        //Get pathinfo
         $image = pathinfo($img_url);
-        
+
+        //if file extention not in $ext array throw exception
         if (!in_array($image['extension'], $this->ext))
             throw new ImgNotSupportedException();
 
+        //throw exception if can not get image
         if (!$data = file_get_contents($img_url))
             throw new ImgNotFoundException();
 
         file_put_contents($file = $path . $image['basename'], $data);
 
+        //throw exception if can not save image
         if (!file_exists($file))
             throw new ImgSaveErrorException();
 
         $mime = getimagesize($file)['mime'];
 
+        //throw exception if file is not image
         if (!in_array($mime, $this->mime)){
             unlink($file);
             throw new ImgFileIsNotImageExceprion();
